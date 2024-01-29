@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  firestore-emulator:
+    build: .
+    ports:
+      - 8080:8080 # Firestore
+      - 4000:4000 # Firebase UI
+      - 4400:4400 # Hub
+      - 4500:4500 # Logging
+      - 9099:9099 # Authentication
+      - 9150:9150 # Websocket
+    volumes:
+      - ./firebase.json:/app/firebase.json
+      - ./firestore.rules:/app/firestore.rules
